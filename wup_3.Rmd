@@ -35,7 +35,7 @@ basicCN + geom_boxplot()
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Alcohol vs Seat choice")
 ```
   
-These box plots tell us that the median number of ounces of alcohol consumed per week by students sitting in the back is 4, front is 0, and middle is 1. The middle and back rows have students who drink more alcohol than those sitting in the front and, between the middle and back rows, the back row has the students who drink the most alcohol. 
+These box plots tell us that the median number of ounces of alcohol consumed per week by students sitting in the back is 4, front is 0, and middle is 1. The middle and back rows have students who drink more alcohol than those sitting in the front and, between the middle and back rows, the back has the students who drink the most alcohol. 
   
 ## Numerical Summarys
   
@@ -43,11 +43,28 @@ These box plots tell us that the median number of ounces of alcohol consumed per
 favstats(alcohol~Seat,data=davisdata)
 ```  
   
-This table tells us that the average number of ounces of alcohol consumed per week by students in the back row is about 10 and the average for the students in the middle row is about 3 while the average for the students in the front row is about 2. The students who sit in the back row consume 5 times more alcohol than those who sit in the front!   
+This table tells us that the average number of ounces of alcohol consumed per week by students in the back row is about 10 and the average for the students in the middle row is about 3 while the average for the students in the front is about 2. The students who sit in the back consume 5 times more alcohol than those who sit in the front!   
 The standard deviation for the front is about 4, meaning the typical observation from the front is, on average, this many weekly ounces of alcohol away from the mean. Since it is fairly low, the cases are closer to the mean of 2 and thus do not wander as high as the observations for the back row do with a standard deviation of about 13 (more variability).
   
 ## Inferential Tests
+  
+# Inferential
 
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+  
+The p-value, 0.000116, represents the probability of receiving the same results just gotten if the null hypothesis (There is no difference between the average number of drinks imbibed between people conditioned on the row they sit in.) is true. Since this probability is very small, the null hypothesis is untrue and we thus reject it in favor of the alternative (The average number of drinks is different between at least two rows.). It is not likely that the average levels of alcohol consumed per week is the same between the back, front, and middle rows. 
+  
+## When significant follow up with TukeyHSD  
+
+```{r}
+plot(TukeyHSD(model1))
+```
+  
+The TukeyHSD plot tells us that the students who sit in the back row drink much more alcohol on average than the students who sit in the front; there is a significant difference. It then tells us that there is no difference between the average amount of alcohol consumed by the students who sit in the middle and the front because there is a 0 within the confidence interval in the plot. Also, it shows that the students who sit in the middle row drink much less alcohol on average than the students who sit in the back; there is also a significant difference here.
+  
 ## Conclusions
 
 
