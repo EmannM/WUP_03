@@ -66,5 +66,6 @@ plot(TukeyHSD(model1))
 The TukeyHSD plot tells us that the students who sit in the back row drink much more alcohol on average than the students who sit in the front; there is a significant difference. It then tells us that there is no difference between the average amount of alcohol consumed by the students who sit in the middle and the front because there is a 0 within the confidence interval in the plot. Also, it shows that the students who sit in the middle row drink much less alcohol on average than the students who sit in the back; there is also a significant difference here.
   
 ## Conclusions
-
-
+  
+There is a difference between alcohol consumption and the row chosen to sit in. We have found evidence that those who drink more alcohol sit in the back row.
+  
