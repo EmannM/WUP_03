@@ -34,9 +34,11 @@ basicCN + geom_boxplot()
 ```{r}
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
 ```
-
-## Numerical Summarys 
-
+  
+These box plots tell us that the median number of drinks consumed by students sitting in the back row is 4, the median number of drinks consumed by students sitting in the front row is 0, and the median number of drinks consumed by students sitting in the middle row is 1. The middle and back rows have students who drink more alcohol than those sitting in the front and, out of the middle and back rows, the back row has the students who drink the most alcohol. 
+  
+## Numerical Summarys
+  
 ## Inferential Tests
 
 ## Conclusions
